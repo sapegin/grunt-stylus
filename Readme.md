@@ -2,7 +2,7 @@
 
 ## Overview
 
-Inside your `grunt.js` file add a section named `stylus`. This section specifies the files to compile and the options passed to [stylus](http://learnboost.github.com/stylus/).
+Inside your `grunt.js` file add a section named `stylus`. This section specifies the files to compile and the options passed to [Stylus](http://learnboost.github.com/stylus/).
 
 ### Parameters
 
