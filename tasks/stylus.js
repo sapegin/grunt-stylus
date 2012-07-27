@@ -18,14 +18,14 @@ module.exports = function(grunt) {
 	grunt.registerMultiTask('stylus', 'Compile Stylus files into CSS', function() {
 		// @todo Ditch this when grunt v0.4 is released
 		this.files = this.files || grunt.helper('normalizeMultiTaskFiles', this.data, this.target);
-
+		var options = this.data.options;
 		var done = this.async();
 
 		async.forEachSeries(this.files, function(file, next) {
 			var srcFiles = grunt.file.expandFiles(file.src);
 
 			async.concatSeries(srcFiles, function(srcFile, nextConcat) {
-				var helperOptions = _.extend({filename: srcFile}, this.data.options),
+				var helperOptions = _.extend({filename: srcFile}, options),
 					sourceCode = grunt.file.read(srcFile);
 
 				grunt.helper('stylus', sourceCode, helperOptions, function(css) {
