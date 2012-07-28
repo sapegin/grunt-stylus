@@ -66,16 +66,14 @@ module.exports = function(grunt) {
 		s.render(function(err, css) {
 			if (err) {
 				grunt.log.error(err);
-				grunt.fail.warn('Stylus failed to compile.');
+				// @todo Check grunt.file.watchFiles (when it’ll be available) and exit when current task isn’t watch
 			}
-			else {
-				callback(css);
-			}
+			callback(css);
 		});
 	});
 
 
-	// TODO: ditch this when grunt v0.4 is released
+	// @todo ditch this when grunt v0.4 is released
 	// Temporary helper for normalizing files object
 	grunt.registerHelper("normalizeMultiTaskFiles", function(data, target) {
 		var prop, obj;
