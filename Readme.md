@@ -18,30 +18,30 @@ grunt.loadNpmTasks('grunt-stylus');
 Inside your `grunt.js` file add a section named `stylus`. See Parameters section below for details.
 
 
-### Parameters
+## Parameters
 
-#### files ```object```
+### files ```object```
 
 Defines what files this task will process and should contain key:value pairs. The key should result CSS files and the value should be a source Stylus filepath.
 
-#### options ```object```
+### options ```object```
 
 Controls how this task (and its helpers) operate and should contain key:value pairs, see Options section below.
 
-### Options
+## Options
 
-#### paths ```string|array```
+### paths ```string|array```
 
 Specifies directories to scan for @import directives when parsing.
 
-#### Notes
+### Notes
 
 * You can specify all other Stylus options you need: eg. `include css`.
 
 * Options `compress` is enabled by default. See section Handling of `--debug` option below for details.
 
 
-### Config Example
+## Config Example
 
 ``` javascript
 stylus: {
@@ -59,7 +59,7 @@ stylus: {
 ```
 
 
-### Using Stylus’s `url()` Function
+## Using Stylus’s `url()` Function
 
 You can use `url()` function for embedding images as data:uri. You can define any name for it.
 
@@ -80,7 +80,7 @@ E {
 ```
 
 
-### Handling of `--debug` option
+## Handling of `--debug` option
 
 Compression (`compress` option in Stylus) disables when `--debug` options for `grunt` is specified. And enables otherwise.
 
