@@ -1,32 +1,45 @@
 # Stylus task for Grunt
 
-## Overview
 
-Inside your `grunt.js` file add a section named `stylus`. This section specifies the files to compile and the options passed to [Stylus](http://learnboost.github.com/stylus/).
+## Installation
+
+Install `grunt-stylus`:
+
+```
+npm install grunt-stylus
+```
+
+Add somewhere in your `grunt.js`:
+
+```javascript
+grunt.loadNpmTasks('grunt-stylus');
+```
+
+Inside your `grunt.js` file add a section named `stylus`. See Parameters section below for details.
+
 
 ### Parameters
 
 #### files ```object```
 
-This defines what files this task will process and should contain key:value pairs.
-
-The key (destination) should be an unique filepath (supports [grunt.template](https://github.com/cowboy/grunt/blob/master/docs/api_template.md)) and the value (source) should be a filepath or an array of filepaths (supports [minimatch](https://github.com/isaacs/minimatch)).
-
-Note: When the value contains an array of multiple filepaths, the contents are concatenated in the order passed.
+Defines what files this task will process and should contain key:value pairs. The key should result CSS files and the value should be a source Stylus filepath.
 
 #### options ```object```
 
-This controls how this task (and its helpers) operate and should contain key:value pairs, see options below.
+Controls how this task (and its helpers) operate and should contain key:value pairs, see Options section below.
 
 ### Options
 
-#### compress ```boolean```
-
-This specifies if we should compress the compiled css.
-
 #### paths ```string|array```
 
-This specifies directories to scan for @import directives when parsing.
+Specifies directories to scan for @import directives when parsing.
+
+#### Notes
+
+* You can specify all other Stylus options you need: eg. `include css`.
+
+* Options `compress` is enabled by default. See section Handling of `--debug` option below for details.
+
 
 ### Config Example
 
@@ -34,17 +47,17 @@ This specifies directories to scan for @import directives when parsing.
 stylus: {
   compile: {
     options: {
-      'compress': true,
       'include css': true,
       'paths': ['path/to/import', 'another/to/import']
     },
     files: {
       'path/to/result.css': 'path/to/source.styl',
-      'path/to/another.css': ['path/to/sources/*.styl', 'path/to/more/*.style'],
+      'path/to/another.css': 'path/to/source2.styl'
     }
   }
 },
 ```
+
 
 ### Using Stylus’s `url()` Function
 
@@ -53,7 +66,7 @@ You can use `url()` function for embedding images as data:uri. You can define an
 ```javascript
 ...
 options: {
-  urlfunc: "embedurl"
+  urlfunc: 'embedurl'
 }
 ...
 ```
@@ -62,14 +75,17 @@ Now you can write in Stylus files:
 
 ```css
 E {
-  background:embedurl('logo.png');
+  background:embedurl("logo.png");
 }
 ```
 
 
----
+### Handling of `--debug` option
 
-Based on grunt-contrib’s [stylus task](https://github.com/gruntjs/grunt-contrib/blob/master/tasks/stylus.js) by [Eric Woroshow](/errcw), modified by [Artem Sapegin](/sapegin).
+Compression (`compress` option in Stylus) disables when `--debug` options for `grunt` is specified. And enables otherwise.
+
+
+---
 
 ## License
 
