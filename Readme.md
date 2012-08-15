@@ -22,7 +22,7 @@ Inside your `grunt.js` file add a section named `stylus`. See Parameters section
 
 ### files ```object```
 
-Defines what files this task will process and should contain key:value pairs. The key should result CSS files and the value should be a source Stylus filepath.
+Defines what files this task will process and should contain key:value pairs. The key should result CSS files and the value should be a source Stylus filepath. Supports [grunt.template](https://github.com/cowboy/grunt/blob/master/docs/api_template.md).
 
 ### options ```object```
 

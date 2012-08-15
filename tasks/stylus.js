@@ -21,9 +21,11 @@ module.exports = function(grunt) {
 			destFiles = [];
 
 		async.forEach(Object.keys(files), function(dest, next) {
-			var src = files[dest],
-				sourceCode = grunt.file.read(src);
+			var src = files[dest];
+			src = grunt.template.process(src);
+			dest = grunt.template.process(dest);
 
+			var sourceCode = grunt.file.read(src);
 			grunt.helper('stylus', sourceCode, options, function(css) {
 				grunt.file.write(dest, css);
 				grunt.log.writeln("File '" + dest + "' created.");
