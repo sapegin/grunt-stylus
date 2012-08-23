@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/sapegin/grunt-stylus.png)](http://travis-ci.org/sapegin/grunt-stylus)
 # Stylus task for Grunt
 
 
