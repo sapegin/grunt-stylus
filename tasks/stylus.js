@@ -17,8 +17,7 @@ module.exports = function(grunt) {
 	grunt.registerMultiTask('stylus', 'Compile Stylus files into CSS', function() {
 		var files = this.data.files,
 			options = this.data.options,
-			done = this.async(),
-			destFiles = [];
+			done = this.async();
 
 		async.forEach(Object.keys(files), function(dest, next) {
 			var src = files[dest];
