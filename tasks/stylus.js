@@ -18,7 +18,7 @@ module.exports = function(grunt) {
 		var files = this.data.files,
 			options = this.data.options,
 			done = this.async(),
-			destFiles = [];
+			path = require('path');
 
 		async.forEach(Object.keys(files), function(dest, next) {
 			var src = files[dest];
@@ -26,7 +26,7 @@ module.exports = function(grunt) {
 			dest = grunt.template.process(dest);
 
 			var sourceCode = grunt.file.read(src);
-			grunt.helper('stylus', sourceCode, options, function(css) {
+			grunt.helper('stylus', sourceCode, path.dirname(src), options, function(css) {
 				grunt.file.write(dest, css);
 				grunt.log.writeln("File '" + dest + "' created.");
 
@@ -37,9 +37,11 @@ module.exports = function(grunt) {
 		});
 	});
 
-	grunt.registerHelper('stylus', function(source, options, callback) {
+	grunt.registerHelper('stylus', function(source, path, options, callback) {
 		var stylus = require('stylus'),
 			s = stylus(source);
+
+		s.include(path);
 
 		// Load nib if available
 		try {
