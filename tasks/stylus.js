@@ -54,6 +54,7 @@ module.exports = function(grunt) {
 
 		_.each(options, function(value, key) {
 			if (key === 'urlfunc') {
+				// Custom name of function to embed images as Data URI
 				s.define(value, stylus.url());
 			}
 			else {
