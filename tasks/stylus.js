@@ -41,8 +41,6 @@ module.exports = function(grunt) {
 		var stylus = require('stylus'),
 			s = stylus(source);
 
-		s.include(rootDir);
-
 		// Load nib if available
 		try {
 			s.use(require('nib')());
@@ -62,6 +60,8 @@ module.exports = function(grunt) {
 				s.set(key, value);
 			}
 		});
+
+		s.include(rootDir);
 
 		s.render(function(err, css) {
 			if (err) {
