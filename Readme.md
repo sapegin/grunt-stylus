@@ -59,6 +59,11 @@ stylus: {
 ```
 
 
+## Nib Support
+
+Nib is supported by default. You don’t need to do anything. Just `@import 'nib';` anywere you need some `nib`.
+
+
 ## Using Stylus’s `url()` Function
 
 You can use `url()` function for embedding images as data:uri. You can define any name for it.

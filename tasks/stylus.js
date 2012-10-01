@@ -41,14 +41,6 @@ module.exports = function(grunt) {
 		var stylus = require('stylus'),
 			s = stylus(source);
 
-		// Load nib if available
-		try {
-			s.use(require('nib')());
-		}
-		catch(e) {
-
-		}
-
 		// If --debug was specified
 		options.compress = !grunt.option('debug');
 
@@ -63,6 +55,14 @@ module.exports = function(grunt) {
 		});
 
 		s.include(rootDir);
+
+		// Load nib if available
+		try {
+			s.use(require('nib')());
+		}
+		catch(e) {
+
+		}
 
 		s.render(function(err, css) {
 			if (err) {

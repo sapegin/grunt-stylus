@@ -25,10 +25,8 @@
     "node": "*"
   },
   "dependencies": {
-    "stylus": "*"
-  },
-  "devDependencies": {
-    "grunt": "*"
+    "stylus": "*",
+    "nib": "*"
   },
   "keywords": [
     "gruntplugin"
