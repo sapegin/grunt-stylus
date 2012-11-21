@@ -28,6 +28,12 @@
     "stylus": "*",
     "nib": "*"
   },
+  "devDependencies": {
+    "grunt": "0.3.x"
+  },  
+  "scripts": {
+  	"test": "grunt"
+  },
   "keywords": [
     "gruntplugin",
     "stylus"
