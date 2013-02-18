@@ -1,4 +1,8 @@
-# Stylus task for Grunt [![build status](https://secure.travis-ci.org/sapegin/grunt-stylus.png)](http://travis-ci.org/sapegin/grunt-stylus)
+# Stylus task for Grunt
+
+## Warning
+
+This plugin is deprecated. Use [grunt-contrib-stylus](https://github.com/gruntjs/grunt-contrib-stylus) with Grunt 0.4. It’s more awesome and it should work fine as a drop-in replacement for grunt-stylus.
 
 
 ## Installation
